@@ -161,9 +161,17 @@ class CrudPersonnelController extends Controller
     public function force_delete($id){
         $db = $this->personnel
         ->whereId($id)
+        ->onlyTrashed()
+        ->sole()
+        /** 
+         * sole()
+         * same function as first()
+         * 
+         * @returns Object Model
+         */
         ->forceDelete(); // Permanent delete the data
 
-        return Redirect::route('personnel')->with([
+        return Redirect::route('crud.trash')->with([
             'success' => 'Personnel has been permanently deleted!'
         ]);
     }

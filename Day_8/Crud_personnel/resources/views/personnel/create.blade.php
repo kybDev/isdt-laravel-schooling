@@ -50,6 +50,8 @@
                     <option @if(old('rating')=="5") selected @endif> 5 </option>
                 </select>
             </div>
+
+            <a href="{{ URL::route('personnel')}}" class="btn default">Go Back</a>
             <button type="submit" class="btn success">Submit</button>
         </form>
     </div>

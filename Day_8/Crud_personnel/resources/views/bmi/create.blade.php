@@ -28,7 +28,7 @@
                 <label for="">Weight (kg)</label>
                 <input type="text" name="weight" value="{{ old('weight')}}">
             </div>
-     
+            <a href="{{ URL::route('personnel')}}" class="btn default">Go Back</a>
             <button type="submit" class="btn success">Submit</button>
         </form>
     </div>

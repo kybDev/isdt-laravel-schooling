@@ -28,8 +28,8 @@
                 <label for="">Weight (kg)</label>
                 <input type="text" name="weight" value="{{ $statistics->weight }}">
             </div>
-     
-            <button type="submit" class="btn success">Submit</button>
+            <a href="{{ URL::route('personnel')}}" class="btn default">Go Back</a>
+            <button type="submit" class="btn success">Update</button>
         </form>
     </div>
     

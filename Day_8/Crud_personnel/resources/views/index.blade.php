@@ -23,7 +23,7 @@
             
             <div>
                 @if($trash)
-                    <a href="{{ URL::route('personnel')}}" class="btn default">Personnel List</a>
+                    <a href="{{ URL::route('personnel')}}" class="btn default">Go Back</a>
                 @else
                     <a href="{{ URL::route('crud.trash')}}" class="btn default">View Trash</a>
                     <a href="{{ URL::route('crud.create')}}" class="btn success">CREATE</a>
