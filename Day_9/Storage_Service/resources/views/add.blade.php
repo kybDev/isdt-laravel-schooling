@@ -21,11 +21,23 @@
             </div>
         </nav>
 
-        <form method="post" action="{{ URL::route('add_save') }}">
+        <form method="post" action="{{ URL::route('add_save') }}" enctype="multipart/form-data">
+            @csrf
+
             <div class="mb-3">
-                <label for="uploadFileId" class="form-label">Upload File</label>
-                <input type="file" name="file" class="form-control" id="uploadFileId" aria-describedby="uploadHelp">
-                <div id="uploadHelp" class="form-text">We'll never share your file with anyone else.</div>
+                <label for="nameId" class="form-label">Upload File</label>
+                <input type="file" name="file" class="form-control" id="nameId" aria-describedby="uploadHelp" accept="image/x-png,image/gif,image/jpeg" >
+                <div id="uploadHelp" class="form-text">We'll never share your photo with anyone else.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="nameId" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="nameId" aria-describedby="">
+            </div>
+
+            <div class="mb-3">
+                <label for="priceId" class="form-label">Price</label>
+                <input type="number" name="price" class="form-control" id="priceId" aria-describedby="">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

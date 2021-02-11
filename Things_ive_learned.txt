@@ -6,3 +6,4 @@
 5. Passing of data in routes.
 6. Validation in $request.
 7. Softdelete, restore softdelete, permanent delete sofdelete
+8. Upload File
