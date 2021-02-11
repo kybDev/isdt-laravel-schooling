@@ -35,6 +35,7 @@ class CrudPersonnelController extends Controller
             'statistics.height',
             'statistics.weight',
         )
+        // ->onlyTrashed() //show only soft deleted data
         ->get();
 
         return view('index')->with([
