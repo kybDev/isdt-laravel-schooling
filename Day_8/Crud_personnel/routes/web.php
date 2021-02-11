@@ -16,6 +16,13 @@ use App\Http\Controllers\CrudStatisticsController;
 */
 
 Route::get('/', [ CrudPersonnelController::class, "index" ])->name('personnel');
+
+# SHOW SOFT DELETED DATA
+Route::get('/trash', [ 
+    CrudPersonnelController::class, "trash" 
+])->name('crud.trash');
+
+
 Route::group(['prefix' => 'create'], function () {
     
     # CREATE
@@ -27,7 +34,6 @@ Route::group(['prefix' => 'create'], function () {
         CrudPersonnelController::class, "create_save" 
     ])->name('crud.create.save');
 
-
     # UPDATE
     Route::get('/edit/{id}', [ 
         CrudPersonnelController::class, "update_form" 
@@ -37,24 +43,36 @@ Route::group(['prefix' => 'create'], function () {
         CrudPersonnelController::class, "update_save" 
     ])->name('crud.update.save');
 
-
-    #DELETE
+    # DELETE
     Route::get('/delete/{id}', [ 
         CrudPersonnelController::class, "delete" 
     ])->name('crud.delete');
-});
 
+    # RESTORE
+    Route::get('/restore/{id}', [ 
+        CrudPersonnelController::class, "restore" 
+    ])->name('crud.restore');
+
+    # FORCE DELETE
+    Route::get('/force-delete/{id}', [ 
+        CrudPersonnelController::class, "force_delete" 
+    ])->name('crud.force_delete');
+
+});
 
 Route::group(['prefix' => 'bmi'], function () {
 
+    # Create or Update BMI view page
     Route::get('/{id}', [ 
         CrudStatisticsController::class, "index" 
     ])->name('crud.bmi');
-
+    
+    # Create personnel BMI
     Route::post('create/{id}', [ 
         CrudStatisticsController::class, "create" 
     ])->name('crud.bmi.create');
-
+    
+    # Update personnel BMI
     Route::post('update/{id}', [ 
         CrudStatisticsController::class, "update" 
     ])->name('crud.bmi.update');

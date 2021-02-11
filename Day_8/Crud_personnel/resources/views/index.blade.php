@@ -20,8 +20,14 @@
 
             </div>
 
+            
             <div>
-                <a href="{{ URL::route('crud.create')}}" class="btn success">CREATE</a>
+                @if($trash)
+                    <a href="{{ URL::route('personnel')}}" class="btn default">Personnel List</a>
+                @else
+                    <a href="{{ URL::route('crud.trash')}}" class="btn default">View Trash</a>
+                    <a href="{{ URL::route('crud.create')}}" class="btn success">CREATE</a>
+                @endif
             </div>
         </div>
         {{-- <button class="btn danger">CREATE</button>
@@ -61,9 +67,15 @@
                             <td width="10" align="center">{{ $x->weight }}</td> --}}
                             <td width="10" align="center">{{ $x->bmi ?? 'Not set' }}</td>
                             <td width="185">
-                                <a href="{{ URL::route('crud.bmi', [ 'id' => $x->id ] )}}" class="btn set-bmi">SET BMI</a>
-                                <a href="{{ URL::route('crud.update', [ 'id' => $x->id ] )}}" class="btn default">UPDATE</a>
-                                <a href="{{ URL::route('crud.delete', [ 'id' => $x->id ] )}}" class="btn danger">DELETE</a>
+                                @if($trash)
+                                    <a href="{{ URL::route('crud.force_delete', [ 'id' => $x->id ] )}}" class="btn danger">Force Delete</a>
+                                    <a href="{{ URL::route('crud.restore', [ 'id' => $x->id ] )}}" class="btn default">Restore</a>
+                                @else
+                                    <a href="{{ URL::route('crud.bmi', [ 'id' => $x->id ] )}}" class="btn set-bmi">SET BMI</a>
+                                    <a href="{{ URL::route('crud.update', [ 'id' => $x->id ] )}}" class="btn default">UPDATE</a>
+                                    <a href="{{ URL::route('crud.delete', [ 'id' => $x->id ] )}}" class="btn danger">DELETE</a>
+                                @endif
+                                
                             </td>
                         </tr>
                     @endforeach

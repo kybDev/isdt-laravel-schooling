@@ -25,6 +25,11 @@ class CrudPersonnelController extends Controller
         $this->request      = $request;
     }
 
+
+    private function getPersonnel(){
+
+    }
+
     public function index(){
 
         $data = $this->personnel
@@ -39,6 +44,25 @@ class CrudPersonnelController extends Controller
         ->get();
 
         return view('index')->with([
+            'trash' => false,
+            "personnel" => $data 
+        ]);
+    }
+
+    public function trash(){
+        $data = $this->personnel
+        ->leftJoin('statistics', 'statistics.personnel_id', 'personnel.id')
+        ->select(
+            'personnel.*',
+            'statistics.bmi',
+            'statistics.height',
+            'statistics.weight',
+        )
+        ->onlyTrashed() //show only soft deleted data
+        ->get();
+
+        return view('index')->with([
+            'trash' => true,
             "personnel" => $data 
         ]);
     }
@@ -100,10 +124,47 @@ class CrudPersonnelController extends Controller
     #=========================================================================
 
     public function delete($id){
-        $db = $this->personnel->find($id)->delete();
+        $db = $this->personnel->find($id)
+        // ->forceDelete() // Permanent delete the data
+        ->delete();
 
         return Redirect::route('personnel')->with([
             'success' => 'Personnel has been deleted!'
+        ]);
+    }
+
+    #=========================================================================
+    # RESTORE ================================================================
+    #=========================================================================
+    public function restore($id){
+        $db = $this->personnel
+        ->whereId($id)
+        ->onlyTrashed()
+        ->sole()
+        /** 
+         * sole()
+         * same function as first()
+         * 
+         * @returns Object Model
+         */
+        ->restore();
+
+        return Redirect::route('crud.trash')->with([
+            'success' => 'Personnel has been restore!'
+        ]);
+    }
+
+
+    #=========================================================================
+    # FORCE DELETE ===========================================================
+    #=========================================================================
+    public function force_delete($id){
+        $db = $this->personnel
+        ->whereId($id)
+        ->forceDelete(); // Permanent delete the data
+
+        return Redirect::route('personnel')->with([
+            'success' => 'Personnel has been permanently deleted!'
         ]);
     }
 }
