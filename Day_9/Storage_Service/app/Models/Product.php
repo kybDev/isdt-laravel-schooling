@@ -9,6 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $table = "products";
+
     protected $fillable = [
         'photo', 
         'name', 
@@ -16,4 +18,5 @@ class Product extends Model
         'created_at',
         'updated_at'
     ];
+    
 }

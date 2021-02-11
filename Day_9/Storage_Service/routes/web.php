@@ -17,12 +17,9 @@ Route::get('/', [
     StorageController::class, 'index'
 ])->name('index');
 
-
-
 Route::get('/add', [
     StorageController::class, 'add'
 ])->name('add');
-
 
 Route::post('/add/save', [
     StorageController::class, 'add_save'

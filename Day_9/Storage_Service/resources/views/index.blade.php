@@ -18,7 +18,6 @@
                     <a href="{{ URL::route('add') }}" class="btn btn-success">
                        Add Product
                     </a>
-                    
                 </div>
             </div>
         </nav>
