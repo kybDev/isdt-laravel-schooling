@@ -1,6 +1,7 @@
 # ISDT Laravel Bootcamp 
 
 ## Requirements
+Install the following tools and applications.
 ```bash
 Xampp
 Composer
@@ -13,30 +14,19 @@ To create new Laravel project
 
 ```bash
 $ composer create-project --prefer-dist laravel/laravel "PROJECT_NAME"
+$ cd "PROJECT_NAME"
 ```
 and install package dependencies
 ```bash
 $ composer install
 ```
 
-## Runproject
+## Run Laravel project
 ```bash
 $  php artisan serve
 ```
-## Usage
 
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+#### Generate key
+```bash
+$  php artisan key:generate
 ```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
