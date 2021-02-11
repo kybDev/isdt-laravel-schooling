@@ -1,0 +1,61 @@
+table {
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 1% 2%;
+    /* text-align: center; */
+}
+
+tr th{
+    background: #333;
+    color: #efefef;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 1%;
+}
+
+.success{
+    background: #57b357;
+    color: white;
+}
+
+.danger{
+    background: #b74040;
+    color: white;
+}
+
+.default{
+    background: #4b4bd4;
+    color: white;
+}
+
+label{
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin: 4% 0;
+    color: #333;
+}
+
+input, select, textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #888;
+    outline: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+option {
+    padding: 5px;
+}

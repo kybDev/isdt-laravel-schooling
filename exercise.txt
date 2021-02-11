@@ -1,0 +1,13 @@
+1. Create App "Laravel Request Cycle"
+
+2. Create 5 routes
+   a. /
+   a. /about-us
+   a. /contact
+   a. /services
+   a. /gallery
+
+3. Create a Controller
+4. Create 5 different views
+5. On each view just put title page as content
+

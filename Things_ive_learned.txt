@@ -1,0 +1,7 @@
+
+1. Middleware.
+2. Database Factories and Seeders.
+3. Repository Pattern (Search more about it).
+4. Displaying of data in blade template.
+5. Passing of data in routes.
+6. Validation in $request.

@@ -1,0 +1,24 @@
+1. Create Folder
+2. Create new File, name it "Create App"
+
+
+Save this inside the file
+
+To create new project
+$ composer create-project --prefer-dist laravel/laravel "PROJECT_NAME"
+
+Install porject dependencies
+$ composer install
+
+Run/Serve project
+$ php artisan serve
+
+
+# Generate key
+$php artisan key:generate
+
+# How to create new Controller
+$ php artisan make:controller "ControllerName"
+
+#Create Middelware
+$ 3:11 PM 2/1/2021
