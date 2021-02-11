@@ -25,45 +25,38 @@ class CrudPersonnelController extends Controller
         $this->request      = $request;
     }
 
-
+    /** 
+     * Get personnel Query
+     * 
+     * @return personnel data
+     */
     private function getPersonnel(){
-
-    }
-
-    public function index(){
-
-        $data = $this->personnel
+        return  $this->personnel
         ->leftJoin('statistics', 'statistics.personnel_id', 'personnel.id')
         ->select(
             'personnel.*',
             'statistics.bmi',
             'statistics.height',
             'statistics.weight',
-        )
-        // ->onlyTrashed() //show only soft deleted data
-        ->get();
+        );
+    }
 
+    public function index(){
         return view('index')->with([
             'trash' => false,
-            "personnel" => $data 
+            "personnel" => $this
+            ->getPersonnel()
+            ->get()
         ]);
     }
 
     public function trash(){
-        $data = $this->personnel
-        ->leftJoin('statistics', 'statistics.personnel_id', 'personnel.id')
-        ->select(
-            'personnel.*',
-            'statistics.bmi',
-            'statistics.height',
-            'statistics.weight',
-        )
-        ->onlyTrashed() //show only soft deleted data
-        ->get();
-
         return view('index')->with([
             'trash' => true,
-            "personnel" => $data 
+            "personnel" => $this
+            ->getPersonnel()
+            ->onlyTrashed()
+            ->get()
         ]);
     }
 
