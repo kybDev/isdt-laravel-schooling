@@ -26,7 +26,7 @@
             @foreach ($product as $item)
                 <div class="col-4">
                     <div class="card" >
-                        <img src="{{ $item->photo }}" />
+                        <img src="{{ URL::asset('storage/products/'.$item->photo) }}" />
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->name }}</h5>
                             <p class="card-text text-warning font-weight-bold">{{  $item->price }}</p>
@@ -34,8 +34,6 @@
                     </div>        
                 </div>
             @endforeach
-
-           
         </div>
        
     </div>
