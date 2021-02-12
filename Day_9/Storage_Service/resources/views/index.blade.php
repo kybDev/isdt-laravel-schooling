@@ -24,15 +24,15 @@
 
         <div class="row mt-5">
             @foreach ($product as $item)
-            <div class="col-4">
-                <div class="card" >
-                    <img src="{{  $item->photo }}" />
-                    <div class="card-body">
-                        <h5 class="card-title">{{  $item->name }}</h5>
-                        <p class="card-text text-warning font-weight-bold">{{  $item->price }}</p>
-                    </div>
-                </div>        
-            </div>
+                <div class="col-4">
+                    <div class="card" >
+                        <img src="{{ $item->photo }}" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $item->name }}</h5>
+                            <p class="card-text text-warning font-weight-bold">{{  $item->price }}</p>
+                        </div>
+                    </div>        
+                </div>
             @endforeach
 
            
