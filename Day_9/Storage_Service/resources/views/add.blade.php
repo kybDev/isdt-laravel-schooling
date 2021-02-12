@@ -26,7 +26,7 @@
 
             <div class="mb-3">
                 <label for="nameId" class="form-label">Upload File</label>
-                <input type="file" name="photo" class="form-control" id="nameId" aria-describedby="uploadHelp" accept="image/x-png,image/gif,image/jpeg" >
+                <input type="file" name="file" class="form-control" id="nameId" aria-describedby="uploadHelp" accept="image/x-png,image/gif,image/jpeg" >
                 <div id="uploadHelp" class="form-text">We'll never share your photo with anyone else.</div>
             </div>
 

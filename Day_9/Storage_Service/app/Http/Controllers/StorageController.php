@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Storage;
 use Carbon\Carbon;
-
+use Redirect;
 
 class StorageController extends Controller
 {
@@ -25,7 +25,9 @@ class StorageController extends Controller
     }
 
     public function index(){
-        return view('index');
+        return view('index')->with([
+            'product' => $this->product->all()
+        ]);
     }
 
     public function add(){
@@ -33,19 +35,28 @@ class StorageController extends Controller
     }
 
     public function add_save(){
+        $fileName = $this->createFilename();
+
         $saveFile = Storage::disk('public')
             ->putFileAs( 
                 'products', // Folder 
-                $this->request->photo, // Uploaded file photo
-                $this->createFilename() // Filename
+                $this->request->file, // Uploaded file photo
+                $fileName // Filename
             );
 
-        dd($saveFile);
-        // $this->request->validate($this->rules);
+        $this->request->merge(['photo' => $fileName]); 
+        
+        $this->product->create(
+            $this->request->except('_token', 'file')
+        );
+
+        return Redirect::route('index')->with([
+            'success' => 'Product has been created!'
+        ]);
     }
 
     public function getFileType(){;
-        return $this->request->file('photo')->extension();
+        return $this->request->file('file')->extension();
     }
 
     public function createFilename(){
