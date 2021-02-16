@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Edited
-Route::get('/', function () {
-    return view('welcome');
-});
+
+foreach(glob(__DIR__."/modules/*.php") as $filename){
+    include $filename;
+}

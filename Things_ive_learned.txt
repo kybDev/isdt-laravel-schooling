@@ -10,3 +10,20 @@
 7. Softdelete, restore softdelete, permanent delete sofdelete
 8. Upload File run the code once
    $ php artisan storage:link
+
+
+9. Branching Strategy (search more about it)
+   - delete created branch upon merging to master branch
+
+   master branch workflow
+
+
+git checkout branch_nya
+git pull
+git pull origin main
+git push
+
+git checkout main
+git pull
+git merge branch_nya
+git push

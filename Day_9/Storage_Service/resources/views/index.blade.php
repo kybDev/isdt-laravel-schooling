@@ -10,7 +10,6 @@
 <body>
     
     <div class="container" >
-
         <nav class="navbar navbar-light bg-light mt-5">
             <div class="container-fluid">
                 <h1>Products</h1>
