@@ -32,6 +32,12 @@ class AuthController extends Controller
 
     public function register(){
 
+        $this->request->validate([
+            'email' => 'required',
+            'password' => 'required',
+            'name' => 'required',
+        ]);
+
         $isSignup = User::create([
             'name' => $this->request->name,
             'email' => $this->request->email,
@@ -47,6 +53,7 @@ class AuthController extends Controller
         }
 
         return back()->withError('Something '); 
+
     }
 
     public function adminPage(){

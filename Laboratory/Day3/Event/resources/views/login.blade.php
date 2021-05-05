@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container p-4">
+        <h1>Login</h1>
         @if (session('error'))
             <span class="text-danger">{{ session('error') }}</span>
         @endif

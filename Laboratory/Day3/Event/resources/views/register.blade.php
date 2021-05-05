@@ -13,6 +13,15 @@
         @if (session('error'))
             <span class="text-danger">{{ session('error') }}</span>
         @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form method="post" action="{{ URL::route('register') }}">
             @csrf
             <div class="mb-3">
